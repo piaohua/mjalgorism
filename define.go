@@ -1,0 +1,182 @@
+package algo
+
+//数牌
+const (
+	MAN  = 0 //万类型
+	MAN1 = 1 //万
+	MAN2 = 2
+	MAN3 = 3
+	MAN4 = 4
+	MAN5 = 5
+	MAN6 = 6
+	MAN7 = 7
+	MAN8 = 8
+	MAN9 = 9
+	PIN  = 10 //饼类型
+	PIN1 = 11 //饼
+	PIN2 = 12
+	PIN3 = 13
+	PIN4 = 14
+	PIN5 = 15
+	PIN6 = 16
+	PIN7 = 17
+	PIN8 = 18
+	PIN9 = 19
+	SOU  = 20 //条类型
+	SOU1 = 21 //条
+	SOU2 = 22
+	SOU3 = 23
+	SOU4 = 24
+	SOU5 = 25
+	SOU6 = 26
+	SOU7 = 27
+	SOU8 = 28
+	SOU9 = 29
+)
+
+/*
+//数牌+字牌
+const (
+	MAN  = 0 //数牌
+	MAN1 = 0
+	MAN2 = 1
+	MAN3 = 2
+	MAN4 = 3
+	MAN5 = 4
+	MAN6 = 5
+	MAN7 = 6
+	MAN8 = 7
+	MAN9 = 8
+	PIN  = 9
+	PIN1 = 9
+	PIN2 = 10
+	PIN3 = 11
+	PIN4 = 12
+	PIN5 = 13
+	PIN6 = 14
+	PIN7 = 15
+	PIN8 = 16
+	PIN9 = 17
+	SOU  = 18
+	SOU1 = 18
+	SOU2 = 19
+	SOU3 = 20
+	SOU4 = 21
+	SOU5 = 22
+	SOU6 = 23
+	SOU7 = 24
+	SOU8 = 25
+	SOU9 = 26
+	TON  = 27 //字牌
+	NAN  = 28
+	SHA  = 29
+	PEI  = 30
+	HAK  = 31
+	HAT  = 32
+	CHU  = 33
+)
+
+//数牌+字牌(16进制表示)
+// 万牌
+const (
+	MAN1 = iota + 0x01
+	MAN2
+	MAN3
+	MAN4
+	MAN5
+	MAN6
+	MAN7
+	MAN8
+	MAN9
+)
+
+// 筒牌
+const (
+	PIN1 = iota + 0x11
+	PIN2
+	PIN3
+	PIN4
+	PIN5
+	PIN6
+	PIN7
+	PIN8
+	PIN9
+)
+
+// 条牌
+const (
+	SOU1 = iota + 0x21
+	SOU2
+	SOU3
+	SOU4
+	SOU5
+	SOU6
+	SOU7
+	SOU8
+	SOU9
+)
+
+// 字牌
+// 风牌: 东、南、西、北
+// 箭牌: 中、发、白
+const (
+	TON = iota + 0x31
+	NAN
+	SHA
+	PEI
+	HAK
+	HAT
+	CHU
+)
+
+*/
+
+/*
+var CARDS = []int{
+	MAN1, MAN2, MAN3, MAN4, MAN5, MAN6, MAN7, MAN8, MAN9,
+	MAN1, MAN2, MAN3, MAN4, MAN5, MAN6, MAN7, MAN8, MAN9,
+	MAN1, MAN2, MAN3, MAN4, MAN5, MAN6, MAN7, MAN8, MAN9,
+	MAN1, MAN2, MAN3, MAN4, MAN5, MAN6, MAN7, MAN8, MAN9,
+	SOU1, SOU2, SOU3, SOU4, SOU5, SOU6, SOU7, SOU8, SOU9,
+	SOU1, SOU2, SOU3, SOU4, SOU5, SOU6, SOU7, SOU8, SOU9,
+	SOU1, SOU2, SOU3, SOU4, SOU5, SOU6, SOU7, SOU8, SOU9,
+	SOU1, SOU2, SOU3, SOU4, SOU5, SOU6, SOU7, SOU8, SOU9,
+	PIN1, PIN2, PIN3, PIN4, PIN5, PIN6, PIN7, PIN8, PIN9,
+	PIN1, PIN2, PIN3, PIN4, PIN5, PIN6, PIN7, PIN8, PIN9,
+	PIN1, PIN2, PIN3, PIN4, PIN5, PIN6, PIN7, PIN8, PIN9,
+	PIN1, PIN2, PIN3, PIN4, PIN5, PIN6, PIN7, PIN8, PIN9,
+}
+*/
+
+//test
+var CARDS = []int{
+	MAN1, MAN1, MAN1, MAN1, MAN5, MAN6, MAN7, MAN8, MAN9,
+	SOU1, SOU2, SOU3, SOU4,
+	MAN2, MAN2, MAN2, MAN2, MAN5, MAN6, MAN7, MAN8, MAN9,
+	SOU5, SOU6, SOU7, SOU8,
+	MAN3, MAN3, MAN3, MAN3, MAN5, MAN6, MAN7, MAN8, MAN9,
+	SOU1, SOU2, SOU3, SOU4,
+	MAN4, MAN4, MAN4, MAN4, MAN5, MAN6, MAN7, MAN8, MAN9,
+	SOU5, SOU6, SOU7, SOU8,
+	SOU9, SOU9,
+	SOU1, SOU2, SOU3, SOU4, SOU5, SOU6, SOU7, SOU8, SOU9,
+	SOU1, SOU2, SOU3, SOU4, SOU5, SOU6, SOU7, SOU8, SOU9,
+	PIN1, PIN2, PIN3, PIN4, PIN5, PIN6, PIN7, PIN8, PIN9,
+	PIN1, PIN2, PIN3, PIN4, PIN5, PIN6, PIN7, PIN8, PIN9,
+	PIN1, PIN2, PIN3, PIN4, PIN5, PIN6, PIN7, PIN8, PIN9,
+	PIN1, PIN2, PIN3, PIN4, PIN5, PIN6, PIN7, PIN8, PIN9,
+}
+
+// 牌局基础的常量
+const (
+	LEN   int = 30  //数牌表示长度(0~29)
+	HAND  int = 13  //手牌数量
+	TOTAL int = 108 //一副麻将总数
+
+	// 碰杠胡掩码
+	HU      uint32 = 1 << 0 // 胡
+	PONG    uint32 = 1 << 1 // 碰
+	MI_KONG uint32 = 1 << 2 // 明杠
+	AN_KONG uint32 = 1 << 3 // 暗杠
+	BU_KONG uint32 = 1 << 4 // 补杠
+)
